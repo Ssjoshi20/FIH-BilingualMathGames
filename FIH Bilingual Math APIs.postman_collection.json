@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "516ed06f-6643-4d38-b0f7-5e20455243bd",
+		"name": "FIH Bilingual Math APIs",
+		"description": "This is a collection of all the APIs needed for the game devs to integrate backend with their application, functionalities include -\n\n- Sign Up\n    \n- Sign In\n    \n\nAll the below APIs need authToken for the requests, use the authToken that gets generated to your user after sign in. use the token in the header called Authorization\n\n- Set user profile\n    \n- Get user profile\n    \n- Get game data using user_id and game_name\n    \n- Post game data for a user and game_name",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4876520"
+	},
+	"item": [
+		{
+			"name": "sign-up",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"phaneendra24343@gmail.com\",\n\"password\":\"resttest125\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "134.209.15.169:4000/api/signup",
+					"host": [
+						"134",
+						"209",
+						"15",
+						"169"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"signup"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "sign-in",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"phaneendra23@gmail.com\",\n\"password\":\"resttest125\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "134.209.15.169:4000/api/signin",
+					"host": [
+						"134",
+						"209",
+						"15",
+						"169"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"signin"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "set-user-profile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVkNjE3N2E5Mjg2ZDI1Njg0NTI2OWEzMTM2ZDNmNjY0MjZhNGQ2NDIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc2loLXN1cGVyLXNldC1kZXYiLCJhdWQiOiJzaWgtc3VwZXItc2V0LWRldiIsImF1dGhfdGltZSI6MTcxNzM4ODIyMywidXNlcl9pZCI6ImJSaGFnVWRFTTlXUlowUGRtWTNTMGxscnFvTjIiLCJzdWIiOiJiUmhhZ1VkRU05V1JaMFBkbVkzUzBsbHJxb04yIiwiaWF0IjoxNzE3Mzg4MjIzLCJleHAiOjE3MTczOTE4MjMsImVtYWlsIjoicGhhbmVlbmRyYTIzQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJwaGFuZWVuZHJhMjNAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.tguGpq82ZJsvBu2GPBY9P1x9mYUWhwaCmZz7TFfQUCVrqG8IYmD2pb3g6HUp8uauoRTjsXcVZXu6W14WMWDzxdlyO1gyFeHZTQ2hwYdyeULTOM92pYeKglTS0EDLekIhoXgMfvXCJbqT7oicui8irekf2fV9g-qyUunoODExDgVLdqSqC9HvQq4aminQvF8E4QjDc79FbcW3weaEeYkXCIO8i9-MBwOKNcQmTIyCK7UuqbhY_Jn_-qk-FLeLlxTW_sofK8VvjqCvGeWUwoSLOj1vFKKSEkwO-FkXACjS8P7_bKJ51xeHmwWVCo24NU_46-Kan1AdH4Nyr9PvCcHoHw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"language_preference\": \"EN\",\n    \"learning_language\":\"EN\",\n    \"user_age\":\"15\",\n    \"user_email\":\"phaneendra23@gmail.com\",\n    \"user_name\":\"Phani\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "134.209.15.169:4000/api/set-user-profile",
+					"host": [
+						"134",
+						"209",
+						"15",
+						"169"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"set-user-profile"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "get-user-profile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVkNjE3N2E5Mjg2ZDI1Njg0NTI2OWEzMTM2ZDNmNjY0MjZhNGQ2NDIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc2loLXN1cGVyLXNldC1kZXYiLCJhdWQiOiJzaWgtc3VwZXItc2V0LWRldiIsImF1dGhfdGltZSI6MTcxNzM4ODIyMywidXNlcl9pZCI6ImJSaGFnVWRFTTlXUlowUGRtWTNTMGxscnFvTjIiLCJzdWIiOiJiUmhhZ1VkRU05V1JaMFBkbVkzUzBsbHJxb04yIiwiaWF0IjoxNzE3Mzg4MjIzLCJleHAiOjE3MTczOTE4MjMsImVtYWlsIjoicGhhbmVlbmRyYTIzQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJwaGFuZWVuZHJhMjNAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.tguGpq82ZJsvBu2GPBY9P1x9mYUWhwaCmZz7TFfQUCVrqG8IYmD2pb3g6HUp8uauoRTjsXcVZXu6W14WMWDzxdlyO1gyFeHZTQ2hwYdyeULTOM92pYeKglTS0EDLekIhoXgMfvXCJbqT7oicui8irekf2fV9g-qyUunoODExDgVLdqSqC9HvQq4aminQvF8E4QjDc79FbcW3weaEeYkXCIO8i9-MBwOKNcQmTIyCK7UuqbhY_Jn_-qk-FLeLlxTW_sofK8VvjqCvGeWUwoSLOj1vFKKSEkwO-FkXACjS8P7_bKJ51xeHmwWVCo24NU_46-Kan1AdH4Nyr9PvCcHoHw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "134.209.15.169:4000/api/get-user-profile",
+					"host": [
+						"134",
+						"209",
+						"15",
+						"169"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"get-user-profile"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "get-user-game-data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVkNjE3N2E5Mjg2ZDI1Njg0NTI2OWEzMTM2ZDNmNjY0MjZhNGQ2NDIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc2loLXN1cGVyLXNldC1kZXYiLCJhdWQiOiJzaWgtc3VwZXItc2V0LWRldiIsImF1dGhfdGltZSI6MTcxNzM4ODIyMywidXNlcl9pZCI6ImJSaGFnVWRFTTlXUlowUGRtWTNTMGxscnFvTjIiLCJzdWIiOiJiUmhhZ1VkRU05V1JaMFBkbVkzUzBsbHJxb04yIiwiaWF0IjoxNzE3Mzg4MjIzLCJleHAiOjE3MTczOTE4MjMsImVtYWlsIjoicGhhbmVlbmRyYTIzQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJwaGFuZWVuZHJhMjNAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.tguGpq82ZJsvBu2GPBY9P1x9mYUWhwaCmZz7TFfQUCVrqG8IYmD2pb3g6HUp8uauoRTjsXcVZXu6W14WMWDzxdlyO1gyFeHZTQ2hwYdyeULTOM92pYeKglTS0EDLekIhoXgMfvXCJbqT7oicui8irekf2fV9g-qyUunoODExDgVLdqSqC9HvQq4aminQvF8E4QjDc79FbcW3weaEeYkXCIO8i9-MBwOKNcQmTIyCK7UuqbhY_Jn_-qk-FLeLlxTW_sofK8VvjqCvGeWUwoSLOj1vFKKSEkwO-FkXACjS8P7_bKJ51xeHmwWVCo24NU_46-Kan1AdH4Nyr9PvCcHoHw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"game_id\":\"fun_math\",\n    \"levels\":[{\n        \"complete_status\":true,\n        \"level_name\":\"Addition\",\n        \"level_number\":1,\n        \"max_level_score\":600,\n        \"user_level_score\":600\n    },\n    {\n        \"complete_status\":false,\n        \"level_name\":\"Subtraction\",\n        \"level_number\":2,\n        \"max_level_score\":600,\n        \"user_level_score\":200\n    }\n    ],\n    \"max_score\":2000,\n    \"user_score\":300\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "134.209.15.169:4000/api/set-user-game-data/fun_math",
+					"host": [
+						"134",
+						"209",
+						"15",
+						"169"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"set-user-game-data",
+						"fun_math"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-user-game-data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVkNjE3N2E5Mjg2ZDI1Njg0NTI2OWEzMTM2ZDNmNjY0MjZhNGQ2NDIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc2loLXN1cGVyLXNldC1kZXYiLCJhdWQiOiJzaWgtc3VwZXItc2V0LWRldiIsImF1dGhfdGltZSI6MTcxNzM4ODIyMywidXNlcl9pZCI6ImJSaGFnVWRFTTlXUlowUGRtWTNTMGxscnFvTjIiLCJzdWIiOiJiUmhhZ1VkRU05V1JaMFBkbVkzUzBsbHJxb04yIiwiaWF0IjoxNzE3Mzg4MjIzLCJleHAiOjE3MTczOTE4MjMsImVtYWlsIjoicGhhbmVlbmRyYTIzQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJwaGFuZWVuZHJhMjNAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.tguGpq82ZJsvBu2GPBY9P1x9mYUWhwaCmZz7TFfQUCVrqG8IYmD2pb3g6HUp8uauoRTjsXcVZXu6W14WMWDzxdlyO1gyFeHZTQ2hwYdyeULTOM92pYeKglTS0EDLekIhoXgMfvXCJbqT7oicui8irekf2fV9g-qyUunoODExDgVLdqSqC9HvQq4aminQvF8E4QjDc79FbcW3weaEeYkXCIO8i9-MBwOKNcQmTIyCK7UuqbhY_Jn_-qk-FLeLlxTW_sofK8VvjqCvGeWUwoSLOj1vFKKSEkwO-FkXACjS8P7_bKJ51xeHmwWVCo24NU_46-Kan1AdH4Nyr9PvCcHoHw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"game_id\":\"fun_math\",\n    \"levels\":[{\n        \"complete_status\":true,\n        \"level_name\":\"Addition\",\n        \"level_number\":1,\n        \"max_level_score\":600,\n        \"user_level_score\":600\n    },\n    {\n        \"complete_status\":false,\n        \"level_name\":\"Subtraction\",\n        \"level_number\":2,\n        \"max_level_score\":600,\n        \"user_level_score\":200\n    }\n    ],\n    \"max_score\":2000,\n    \"user_score\":200\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "134.209.15.169:4000/api/get-user-game-data/fun_math",
+					"host": [
+						"134",
+						"209",
+						"15",
+						"169"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"get-user-game-data",
+						"fun_math"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}

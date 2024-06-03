@@ -25,3 +25,6 @@
 7. Raise a Pull Request, feed appropritate description in the request
 8. Wait for the merge approval by backend members
 9. Merged!
+
+# API Documentation
+Download the latest postman, and import the FIH Bilingual Math APIs.postman_collection.json file which has all the APIs game devs need.
